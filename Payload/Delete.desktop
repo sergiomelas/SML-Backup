@@ -1,0 +1,19 @@
+[Desktop Entry]
+Actions=new-window;new-private-window;
+Comment[en_US]=Backup Folder Delete
+Comment=Backup Folder Delete
+GenericName[en_US]=
+GenericName=
+MimeType=
+Name[en_US]=Delete a Backup
+Name=Delete a Backup
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=-x
+Type=Application
+Version=1.0
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
