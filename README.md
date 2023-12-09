@@ -7,17 +7,15 @@
 
 
 
-WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                                                                                                                 ┃
-┃     NEVER RUN THIS SOFTWARE FROM A SUBDIRECTORY OF YOUR HOME FOLDER, THIS COULD DAMAGE YOUR SYSTEM              ┃
-┃                              Run instead from the backup external disk                                          ┃
-┃                                                                                                                 ┃
-┃       We assume no responsibility for errors or omissions in the software or documentation available.           ┃
-┃      In no event shall we be liable to you or any third parties for any special, punitive, incidental,          ┃
-┃     indirect or consequential damages of any kind, or any damages whatsoever, including, without limitation,    ┃
-┃     those resulting from loss of use, data or profits, and on any theory of liability, arising out of or in     ┃
-┃     connection with the use of this software.                                                                   ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+WARNING & DISCLAIMER: 
+NEVER RUN THIS SOFTWARE FROM A SUBDIRECTORY OF YOUR HOME FOLDER, THIS COULD DAMAGE YOUR SYSTEM  
+Run instead from the backup external disk                                     
+
+We assume no responsibility for errors or omissions in the software or documentation available.        
+In no event shall we be liable to you or any third parties for any special, punitive, incidental,        
+indirect or consequential damages of any kind, or any damages whatsoever, including, without limitation,   
+those resulting from loss of use, data or profits, and on any theory of liability, arising out of or in    
+connection with the use of this software.                                                                 
 
 
 Description:
