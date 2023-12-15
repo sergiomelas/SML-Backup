@@ -42,7 +42,7 @@ Installation Instructions:
 
   -Now proceed to the installation of the scripts:
      -Copy the content of the payload ZIP file inside the target backup drive (pay attention there are hidden files be shure to copy all of them)
-     -run install.sh dragging and droping it in a console (need to swer some questions)
+     -run install.sh dragging and droping it in a console (need to answer some questions)
 
 Note: To create first backup click the backup icon, At each run an incremental backup is created
 
