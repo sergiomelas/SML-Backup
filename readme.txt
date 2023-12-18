@@ -17,7 +17,7 @@ WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━�
 ┃     indirect or consequential damages of any kind, or any damages whatsoever, including, without limitation,    ┃
 ┃     those resulting from loss of use, data or profits, and on any theory of liability, arising out of or in     ┃
 ┃     connection with the use of this software.                                                                   ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 
 Description:
@@ -36,9 +36,12 @@ Installation Instructions:
 
       -Format in in BTRFS with a name you prefer for example  "Backup_Disk" using a partition manager giving access to you as owner
 
-      -Activate BTRFS compression on external disk:
-         sudo btrfs property set '/media/<Your User>/Backup_Disk'  compression zstd:1
+      -Activate BTRFS compression on external disk, <CL>=1-15 is compression level , higher more compression but slowr:
+         sudo btrfs property set '/media/<Your User>/Backup_Disk'  compression zstd:<CL>
          sudo btrfs filesystem defrag -czstd -rv    '/media/<Your User>/Backup_Disk'
+           Example: user=sergio, disk="Backup_Disk" compression level=15
+           sudo btrfs property set '/media/sergio>/Backup_Disk'  compression zstd:15
+           sudo btrfs filesystem defrag -czstd -rv    '/media/sergio/Backup_Disk'
 
   -Now proceed to the installation of the scripts:
      -Copy the content of the payload ZIP file inside the target backup drive (pay attention there are hidden files be shure to copy all of them)
