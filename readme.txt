@@ -7,7 +7,7 @@
 
 
 
-WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃                                                                                                                 ┃
 ┃     NEVER RUN THIS SOFTWARE FROM A SUBDIRECTORY OF YOUR HOME FOLDER, THIS COULD DAMAGE YOUR SYSTEM              ┃
 ┃                              Run instead from the backup external disk                                          ┃
@@ -17,13 +17,11 @@ WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━�
 ┃     indirect or consequential damages of any kind, or any damages whatsoever, including, without limitation,    ┃
 ┃     those resulting from loss of use, data or profits, and on any theory of liability, arising out of or in     ┃
 ┃     connection with the use of this software.                                                                   ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 
 * Description:
   - This collection of scripts implements incremental backups of your home folder using rsynk with a pretty interface
-  - A backup of you APT current configuration is also performed in the hidded $HOME/.Apt_system_map.apt-clone.tar.gz ,
-    look in the help of apt-clone in case of restore on how to use this file
   - This software will reside in the backup disk
 
 * Usage:
@@ -60,5 +58,5 @@ Change log:
  -V1.0 2011: Initial version
  -V1.1 2019: Added support for btrfs compression
  -v2.0 2023: First pubblic release, added deleting old backups and many improvements
- -v2.1 2024: Added apt-clone apt image
+
 
