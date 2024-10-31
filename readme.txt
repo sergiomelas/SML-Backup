@@ -22,17 +22,20 @@ WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━�
 
 * Description:
   - This collection of scripts implements incremental backups of your home folder using rsynk with a pretty interface
+  - The incremental backups are fully integrated with timeshift for system backup
   - This software will reside in the backup disk
 
 * Usage:
   - Click on the "Backup" launcher to create a backup or generate an incremental one afterwards
   - Drag and drop backup folders to the "Delete" launcher to delete them
+  - Click "Timeshift OS Backups"laucher to acess the system backups timeshift interface
 
 * Installation Instructions:
   -Needed dependencies :
     zenity rsync original-awk
-    (for debian just install running the script, see below)
-  -Prepare the disk with compression
+    (for debian just install running the script, see below) or run
+
+    -Prepare the disk with compression
       -Insert a USB HD you want to use as backup drive
 
       -Format in in BTRFS with a name you prefer for example  "Backup_Disk" using a partition manager giving access to you as owner
@@ -42,7 +45,7 @@ WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━�
          sudo btrfs filesystem defrag -czstd -rv    '/media/<User>/Backup_Disk'
 
          Example for: <User>=sergio, disk="Backup_Disk" compression level=15
-         sudo btrfs property set '/media/sergio>/Backup_Disk'  compression zstd:15
+         sudo btrfs property set '/media/sergio/Backup_Disk'  compression zstd:15
          sudo btrfs filesystem defrag -czstd -rv    '/media/sergio/Backup_Disk'
 
   -Now proceed to the installation of the scripts:
@@ -58,5 +61,6 @@ Change log:
  -V1.0 2011: Initial version
  -V1.1 2019: Added support for btrfs compression
  -v2.0 2023: First pubblic release, added deleting old backups and many improvements
-
+ -v2.1 2023: Corrected bug you could delete last backup
+ -v2.2 2024: Added timeshift system backup integration
 
