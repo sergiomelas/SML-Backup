@@ -70,5 +70,5 @@ Change log:
  -v2.0 2023: First pubblic release, added deleting old backups and many improvements
  -v2.1 2023: Corrected bug you could delete last backup
  -v2.2 2024: Added timeshift system backup integration
- -v2.3 2025: Corrected bug on timeshift integration, added management of interrupted backup
+ -v2.3 2025: Corrected bug on timeshift integration, added management of interrupted backup and lost disk connection
 
