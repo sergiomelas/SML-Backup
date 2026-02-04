@@ -65,10 +65,10 @@ WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━�
 
 ##################################################################################################################
 Change log:
- -V1.0 2011: Initial version
- -V1.1 2019: Added support for btrfs compression
- -v2.0 2023: First pubblic release, added deleting old backups and many improvements
- -v2.1 2023: Corrected bug you could delete last backup
- -v2.2 2024: Added timeshift system backup integration
- -v2.3 2025: Corrected bug on timeshift integration, added management of interrupted backup and lost disk connection
-
+ -V1.0 2011-09-08: Initial version
+ -V1.1 2019-06-05: Added support for btrfs compression
+ -v2.0 2023-04-03: First pubblic release, added deleting old backups and many improvements
+ -v2.1 2023-07-06: Corrected bug you could delete last backup
+ -v2.2 2024-03-02: Added timeshift system backup integration
+ -v2.3 2025-12-23: Corrected bug on timeshift integration, added management of interrupted backup and lost disk connection
+ -v2.4 2026-02-04: Added management of thimeshift backup interrupted
