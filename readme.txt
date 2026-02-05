@@ -7,16 +7,16 @@
                      ##################################################################
                      ##################################################################
 
-WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                                                                                                                 ┃
-┃      NEVER RUN THIS SOFTWARE FROM A SUBDIRECTORY OF YOUR HOME FOLDER; THIS COULD DAMAGE YOUR SYSTEM             ┃
-┃                                Run instead from the backup external disk                                        ┃
-┃                                                                                                                 ┃
-┃         We assume no responsibility for errors or omissions in the software or documentation available.         ┃
-┃        In no event shall we be liable to you or any third parties for any special, punitive, incidental,        ┃
-┃      indirect or consequential damages of any kind, or any damages whatsoever, including, without limitation,   ┃
-┃      those resulting from loss of use, data or profits, arising out of or in connection with this software.     ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                                                         ┃
+┃ NEVER RUN THIS SOFTWARE FROM A SUBDIRECTORY OF YOUR HOME FOLDER; THIS COULD DAMAGE YOUR SYSTEM          ┃
+┃                           Run instead from the backup external disk                                     ┃
+┃                                                                                                         ┃
+┃    We assume no responsibility for errors or omissions in the software or documentation available.      ┃
+┃    In no event shall we be liable to you or any third parties for any special, punitive, incidental,    ┃
+┃ indirect or consequential damages of any kind, or any damages whatsoever, including, without limitation,┃
+┃ those resulting from loss of use, data or profits, arising out of or in connection with this software.  ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 * Description:
   - Implements incremental backups of your home folder using rsync with a clean Zenity interface.
