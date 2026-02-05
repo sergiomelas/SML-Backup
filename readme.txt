@@ -71,4 +71,4 @@ Change log:
  -v2.1 2023-07-06: Corrected bug you could delete last backup
  -v2.2 2024-03-02: Added timeshift system backup integration
  -v2.3 2025-12-23: Corrected bug on timeshift integration, added management of interrupted backup and lost disk connection
- -v2.4 2026-02-04: Added management of thimeshift backup interrupted
+ -v2.4 2026-02-05: Added management of thimeshift backup interrupted ad debugging
