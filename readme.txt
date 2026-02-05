@@ -1,74 +1,69 @@
                      ##################################################################
                      ##################################################################
+                     ###                                                            ###
                      ###                         SML Backup                         ###
-                     ### Developed by sergio melas (sergiomelas@gmail.com) 2011-25  ###
+                     ### Developed by sergio melas (sergiomelas@gmail.com) 2011-26  ###
+                     ###                                                            ###
                      ##################################################################
                      ##################################################################
-
-
 
 WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃                                                                                                                 ┃
-┃     NEVER RUN THIS SOFTWARE FROM A SUBDIRECTORY OF YOUR HOME FOLDER, THIS COULD DAMAGE YOUR SYSTEM              ┃
-┃                              Run instead from the backup external disk                                          ┃
+┃      NEVER RUN THIS SOFTWARE FROM A SUBDIRECTORY OF YOUR HOME FOLDER; THIS COULD DAMAGE YOUR SYSTEM             ┃
+┃                                Run instead from the backup external disk                                        ┃
 ┃                                                                                                                 ┃
-┃       We assume no responsibility for errors or omissions in the software or documentation available.           ┃
-┃      In no event shall we be liable to you or any third parties for any special, punitive, incidental,          ┃
-┃     indirect or consequential damages of any kind, or any damages whatsoever, including, without limitation,    ┃
-┃     those resulting from loss of use, data or profits, and on any theory of liability, arising out of or in     ┃
-┃     connection with the use of this software.                                                                   ┃
+┃         We assume no responsibility for errors or omissions in the software or documentation available.         ┃
+┃        In no event shall we be liable to you or any third parties for any special, punitive, incidental,        ┃
+┃      indirect or consequential damages of any kind, or any damages whatsoever, including, without limitation,   ┃
+┃      those resulting from loss of use, data or profits, arising out of or in connection with this software.     ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-
 * Description:
-  - This collection of scripts implements incremental backups of your home folder using rsynk with a pretty interface
-  - The incremental backups are fully integrated with timeshift for system backup
-  - This software will reside in the backup disk
+  - Implements incremental backups of your home folder using rsync with a clean Zenity interface.
+  - Fully integrated with Timeshift for complete system snapshots.
+  - Designed to reside and run directly from the external backup disk.
+  - Automated "State & Status" logic to detect and repair interrupted backups or lost disk connections.
 
 * Usage:
-  - Click on the "Backup" launcher to create a backup or generate an incremental one afterwards
-  - Drag and drop backup folders to the "Delete" launcher to delete them
-  - Click "Timeshift OS Backups"laucher to acess the system backups timeshift interface
+  - Backup: Click the "Backup" launcher to create a new snapshot or an incremental one.
+  - Delete: Drag and drop backup folders onto the "Delete" launcher for safe removal.
+  - Timeshift: Click "Timeshift OS Backups" to access the system snapshot management interface.
 
 * Installation Instructions:
-  -Needed dependencies :
-    zenity rsync original-awk
-    (for debian just install running the script, see below)
+  - Needed Dependencies:
+      zenity, rsync, original-awk
+      (Debian users can install these via the provided install script).
 
-    -Prepare the disk with compression
-      -Insert a USB HD you want to use as backup drive
+  - Prepare the Disk with Compression (BTRFS):
+      1. Format a USB HD as BTRFS using a partition manager. Ensure your user is the owner.
+      2. Activate BTRFS Transparent Compression (Set <CL> from 1-15; higher is more compressed but slower):
+         sudo btrfs property set '/media/<User>/Backup_Disk' compression zstd:<CL>
+         sudo btrfs filesystem defrag -czstd -rv '/media/<User>/Backup_Disk'
 
-      -Format in in BTRFS with a name you prefer for example  "Backup_Disk" using a partition manager giving access to you as owner
+      Example (User: sergio, Disk: "Time Travel", Compression Level: 15):
+         sudo btrfs property set '/media/sergio/Time Travel' compression zstd:15
+         sudo btrfs filesystem defrag -czstd -rv '/media/sergio/Time Travel'
 
-      -Activate BTRFS compression on external disk, <CL>=1-15 is compression level , higher more compression but slowr:
-         sudo btrfs property set '/media/<User>/Backup_Disk'  compression zstd:<CL>
-         sudo btrfs filesystem defrag -czstd -rv    '/media/<User>/Backup_Disk'
+  - Initial System Setup:
+      1. Run Timeshift manually the first time to create the snapshot structure.
+      2. Select your BTRFS disk as the target and choose "RSYNC" as the backup type.
 
-         Example for: <User>=sergio, disk="Time Travel" compression level=15
-         sudo btrfs property set '/media/sergio/Time Travel'  compression zstd:15
-         sudo btrfs filesystem defrag -czstd -rv    '/media/sergio/Time Travel'
-      -Do the system backup manually the first time:
-         Run timeshift the first time manually to create the system snapshot structure
-         Select the disk you created above as disk target, selsct rsynk backup type
+  - Script Installation:
+      1. Copy the payload ZIP content to the root of the backup drive (include all hidden files like .running).
+      2. Run install.sh by dragging it into a terminal and follow the prompts.
 
-  -Now proceed to the installation of the scripts:
-     -Copy the content of the payload ZIP file inside the target backup drive (pay attention there are hidden files be shure to
-      copy all of them)
-     -run install.sh dragging and droping it in a console (need to answer some questions)
-
-* Restore system
-   - Install debian as usual (use same accounts names)
-   - After restore the system from a snapshot and reboot
-   - Loging as your user
-   - Restore the user files with
-      sudo sudo cp /media/<User>/Backup_Disk/Backup_2025-02-05_04:09:12/<user> /home/<user>
+* Restore System:
+  1. Install Debian as usual using the same account names.
+  2. Restore the system via Timeshift from an existing snapshot and reboot.
+  3. Restore user files from the terminal:
+     sudo cp -rp /media/<User>/Backup_Disk/Backup_YYYY-MM-DD_HH:MM:SS/<user> /home/
 
 ##################################################################################################################
-Change log:
- -V1.0 2011-09-08: Initial version
- -V1.1 2019-06-05: Added support for btrfs compression
- -v2.0 2023-04-03: First pubblic release, added deleting old backups and many improvements
- -v2.1 2023-07-06: Corrected bug you could delete last backup
- -v2.2 2024-03-02: Added timeshift system backup integration
- -v2.3 2025-12-23: Corrected bug on timeshift integration, added management of interrupted backup and lost disk connection
- -v2.4 2026-02-05: Added management of thimeshift backup interrupted ad debugging
+Change Log:
+ -V1.0 2011-09-08: Initial version.
+ -V1.1 2019-06-05: Added support for BTRFS compression.
+ -V2.0 2023-04-03: First public release; added old backup deletion and UI improvements.
+ -V2.1 2023-07-06: Fixed bug allowing deletion of the last good backup.
+ -V2.2 2024-03-02: Added Timeshift system backup integration.
+ -V2.3 2025-12-23: Improved Timeshift integration; added management for interrupted backups/lost connections.
+ -V2.4 2026-02-05: Fixed Timeshift sanitation loop; implemented buttonless UI with direct process-kill logic.
