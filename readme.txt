@@ -27,6 +27,7 @@ WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━�
 * Usage:
   - Backup: Click the "Backup" launcher to create a new snapshot or an incremental one.
   - Delete: Drag and drop backup folders onto the "Delete" launcher for safe removal.
+  - Restore: Drag and drop backup folders onto the "Restore" launcher for safe restore and reboot.
   - Timeshift: Click "Timeshift OS Backups" to access the system snapshot management interface.
 
 * Installation Instructions:
@@ -66,4 +67,4 @@ Change Log:
  -V2.1 2023-07-06: Fixed bug allowing deletion of the last good backup.
  -V2.2 2024-03-02: Added Timeshift system backup integration.
  -V2.3 2025-12-23: Improved Timeshift integration; added management for interrupted backups/lost connections.
- -V2.4 2026-02-05: Fixed Timeshift sanitation loop; implemented buttonless UI with direct process-kill logic.
+ -V2.4 2026-02-05: Added Restore, Fixed Timeshift sanitation loop
