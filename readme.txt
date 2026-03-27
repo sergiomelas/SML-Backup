@@ -45,19 +45,64 @@ WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━�
          sudo btrfs property set '/media/sergio/Time Travel' compression zstd:15
          sudo btrfs filesystem defrag -czstd -rv '/media/sergio/Time Travel'
 
+  - Fix Persistent Mount Point (Recommended):
+      To prevent duplicate mount points (e.g., ".../Backup_Disk 1"), set a static
+      path in /etc/fstab to ensure the "State & Status" logic functions correctly.
+
+      1. Connect Disk: Plug in your USB drive and ensure it is mounted by the system.
+      2. Identify Disk UUID: Run 'lsblk -f' to find your BTRFS partition and copy its UUID.
+      3. Safely Extract: Right-click the disk in the file manager and select "Unmount"
+         or "Safely Remove", or run: sudo umount /run/media/<User>/<Current_Label>
+      4. Create Directory: sudo mkdir -p /media/<Mount_Name>
+      5. Set Permissions: sudo chown <User>:<User> /media/<Mount_Name>
+      6. Edit /etc/fstab: Add the following line to the end of the file:
+         UUID=<UUID>  /media/<Mount_Name>  btrfs  defaults,nofail,user,compress=zstd:<CL>  0  2
+      7. Apply Changes: Run 'sudo systemctl daemon-reload' followed by 'sudo mount -a'.
+
+      Example (User: sergio, Mount Name: timetravel, Disk: "Time Travel", UUID: a1b2c3d4-e5f6-7890-abcd-1234567890ab, CL: 15):
+          (Disk is connected at '/run/media/sergio/Time Travel')
+          sudo umount /run/media/sergio/'Time Travel'
+          sudo mkdir -p /media/timetravel
+          sudo chown sergio:sergio /media/timetravel
+          (In /etc/fstab): UUID=a1b2c3d4-e5f6-7890-abcd-1234567890ab  /media/timetravel  btrfs  defaults,nofail,user,compress=zstd:15  0  2
+          sudo systemctl daemon-reload
+          sudo mount -a
+
   - Initial System Setup:
       1. Run Timeshift manually the first time to create the snapshot structure.
       2. Select your BTRFS disk as the target and choose "RSYNC" as the backup type.
 
-  - Script Installation:
-      1. Copy the payload ZIP content to the root of the backup drive (include all hidden files like .running).
-      2. Run install.sh by dragging it into a terminal and follow the prompts.
+- Script Installation:
+      CRITICAL: You MUST complete the "Fix Persistent Mount Point" step above BEFORE
+      running the installer. If you change the mount path later, the .desktop
+      launchers will break and you will need to run install.sh again.
 
-* Restore System:
-  1. Install Debian as usual using the same account names.
-  2. Restore the system via Timeshift from an existing snapshot and reboot.
-  3. Restore user files from the terminal:
-     sudo cp -rp /media/<User>/Backup_Disk/Backup_YYYY-MM-DD_HH:MM:SS/<user> /home/
+      1. Ensure the disk is mounted at your permanent path (e.g., /media/timetravel).
+      2. Copy the payload ZIP content to the root of the backup drive.
+      3. Run install.sh by dragging it into a terminal and following the prompts.
+      4. The installer will automatically link the launchers to the current path
+         and install dependencies (zenity, rsync, original-awk, timeshift).
+
+- Restore System & Data:
+      1. Prepare Environment (CRITICAL):
+         If you are on a fresh OS installation, you MUST first complete the
+         steps in the "Fix Persistent Mount Point" and "Script Installation"
+         sections above. This ensures the disk is mounted correctly and all
+         dependencies (zenity, rsync, etc.) are installed on the new system.
+
+      2. Restore Home: Drag and drop the desired backup folder (e.g., Backup_YYYY-MM-DD...)
+         onto the "Restore" launcher.
+         - Note: The script will enter "Deep Freeze" mode, terminating browsers and system
+           tasks (Chrome, Firefox, Discord, etc.) to prevent data corruption.
+
+      3. Identity Validation: If the username doesn't match the backup, the script
+         will prompt you to select the correct user folder manually.
+
+      4. System Restore: After the Home restoration, the script will offer to
+         launch Snapshot restoration via Timeshift.
+
+      5. Finalize: Follow the prompt to reboot. A "Maintenance" mask will cover
+         the screen during the final cache sync to ensure total data integrity.
 
 ##################################################################################################################
 Change Log:
@@ -67,4 +112,8 @@ Change Log:
  -V2.1 2023-07-06: Fixed bug allowing deletion of the last good backup.
  -V2.2 2024-03-02: Added Timeshift system backup integration.
  -V2.3 2025-12-23: Improved Timeshift integration; added management for interrupted backups/lost connections.
- -V2.4 2026-02-05: Added Restore, Fixed Timeshift sanitation loop
+ -V2.4 2026-02-05: Added Restore, Fixed Timeshift sanitation loop.
+ -V2.5 2026-03-27: Added Persistent Mount Point guide, optimized process
+                   synchronization during Restore, and mandatory Script
+                   Installation for fresh OS consistency.
+
