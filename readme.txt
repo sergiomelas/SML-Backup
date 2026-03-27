@@ -118,6 +118,28 @@ WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━�
       5. Finalize: Follow the prompt to reboot. A "Maintenance" mask will cover
          the screen during the final cache sync to ensure total data integrity.
 
+- Disk Health & Data Integrity (BTRFS Scrub):
+      To ensure your backups remain 100% readable over time and detect
+      hardware failure (Bit Rot), it is recommended to perform a "Scrub"
+      at least once a month or before a critical Restore.
+
+      This process checks every block of data against its original
+      checksum to verify integrity.
+
+      1. Start Scrub (Background):
+         sudo btrfs scrub start /media/<Mount_Name>
+
+      2. Check Status/Results:
+         sudo btrfs scrub status /media/<Mount_Name>
+
+      Example (Mount Name: timetravel):
+         sudo btrfs scrub start /media/timetravel
+         (Wait a few minutes...)
+         sudo btrfs scrub status /media/timetravel
+
+      Note: If "csum_errors" or "uncorrectable_errors" are greater than 0,
+      the physical disk may be failing. Replace the drive immediately.
+
 ##################################################################################################################
 Change Log:
  -V1.0 2011-09-08: Initial version.
@@ -127,7 +149,8 @@ Change Log:
  -V2.2 2024-03-02: Added Timeshift system backup integration.
  -V2.3 2025-12-23: Improved Timeshift integration; added management for interrupted backups/lost connections.
  -V2.4 2026-02-05: Added Restore, Fixed Timeshift sanitation loop.
- -V2.5 2026-03-27: Added Persistent Mount Point guide, optimized process
-                   synchronization during Restore, and mandatory Script
-                   Installation for fresh OS consistency.
+ -V2.5 2026-03-27: Major README Overhaul: Added Persistent Mount Point guide
+                   (fstab + Desktop UI), BTRFS Scrub maintenance note,
+                   updated Restore section with process synchronization,
+                   and mandatory Script Installation for fresh OS consistency.
 
