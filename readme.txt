@@ -68,6 +68,20 @@ WARNING & DISCLAIMER: ━━━━━━━━━━━━━━━━━━━�
           sudo systemctl daemon-reload
           sudo mount -a
 
+      8. Desktop Environment Integration (KDE / Gnome):
+      After setting up /etc/fstab, configure your desktop to auto-mount
+      the device correctly at login:
+
+        KDE Plasma (See Device Auto-Mount settings):
+        - Open "System Settings" > "Device Auto-Mount".
+        - Check "On Login" and "On Attach" for your backup disk (e.g., "Time Travel").
+        - This ensures KDE triggers the mount point you defined in fstab
+          as soon as you plug it in or log in.
+
+        Gnome:
+        - Open "Disks" utility > Select Disk > "Edit Mount Options".
+        - Ensure "Mount at system startup" is checked so it matches fstab logic.
+
   - Initial System Setup:
       1. Run Timeshift manually the first time to create the snapshot structure.
       2. Select your BTRFS disk as the target and choose "RSYNC" as the backup type.
