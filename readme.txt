@@ -153,4 +153,7 @@ Change Log:
                    (fstab + Desktop UI), BTRFS Scrub maintenance note,
                    updated Restore section with process synchronization,
                    and mandatory Script Installation for fresh OS consistency.
+ -V2.6 2026-05-20: Upgraded core pipeline to leverage rsync 3.4 non-incremental filesystem mapping,
+                   finally solving the legacy jumping progress bar bug which was impossible to fix before.
+
 
