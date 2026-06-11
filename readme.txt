@@ -155,5 +155,6 @@ Change Log:
                    and mandatory Script Installation for fresh OS consistency.
  -V2.6 2026-05-20: Upgraded core pipeline to leverage rsync 3.4 non-incremental filesystem mapping,
                    finally solving the legacy jumping progress bar bug which was impossible to fix before.
-
+ -V2.7 2026-06-11: Hardened engine with pre-created target folders, systemd sleep inhibition, and GUI pipe
+                   synchronization.
 
