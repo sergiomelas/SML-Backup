@@ -157,4 +157,5 @@ Change Log:
                    finally solving the legacy jumping progress bar bug which was impossible to fix before.
  -V2.7 2026-06-11: Hardened engine with pre-created target folders, systemd sleep inhibition, and GUI pipe
                    synchronization.
+ -V2.8 2026-06-25: Replaced generic  marquee with an incremental progress loop tracking active disk I/O.
 
